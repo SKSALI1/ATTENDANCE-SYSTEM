@@ -96,16 +96,41 @@ updateClockAndDate();
 setInterval(updateClockAndDate, 1000);
 
 
+// Function to set the current date to the date input field
+function setCurrentDate() {
+  const dateInput = document.getElementById('date');
+  const currentDate = new Date().toISOString().split('T')[0]; // Get the current date in "YYYY-MM-DD" format
+  dateInput.value = currentDate; // Set the current date as the default value
+}
+
+// Call the function to set the current date when the page loads
+setCurrentDate();
 
 
 
 
+// Function to get the user's location and populate it in the hidden input field
 
 
 
+// Function to get the user's location and populate it in the input field
+function getLocationAndPopulateInput() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const locationInput = document.getElementById('location');
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const location = `Latitude: ${latitude}, Longitude: ${longitude}`;
+      locationInput.value = location;
+    });
+  } else {
+    alert('Geolocation is not supported by your browser.');
+  }
+}
 
-
-
+// Attach the getLocationAndPopulateInput function to the button's click event
+const getLocationButton = document.getElementById('getLocationButton');
+getLocationButton.addEventListener('click', getLocationAndPopulateInput);
 
 
 
@@ -172,3 +197,10 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwdNJaDuMrOXqui0YpTgq
             .then(() => {  window.location.reload(); })
             .catch(error => console.error('Error!', error.message))
         })
+
+
+
+
+
+
+
