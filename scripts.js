@@ -130,7 +130,13 @@ function getLocationAndPopulateInput() {
 
 // Attach the getLocationAndPopulateInput function to the button's click event
 const getLocationButton = document.getElementById('getLocationButton');
-getLocationButton.addEventListener('click', getLocationAndPopulateInput);
+getLocationButton.addEventListener('click', function (e) {
+  e.preventDefault(); // Prevent the default form submission
+  getLocationAndPopulateInput(); // Call the function to get location and populate
+});
+
+
+
 
 
 
