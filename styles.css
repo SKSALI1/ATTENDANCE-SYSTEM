@@ -1,3 +1,4 @@
+/* Default styles for larger screens */
 body {
     background-color: #ffaeae77;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,6 +20,7 @@ form {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
     max-width: 400px;
     width: 100%;
+    margin: 0 auto; /* Center the form horizontally */
 }
 
 h1 {
@@ -67,26 +69,15 @@ p {
     margin: 6px;
     text-align: center;
 }
-/* Styles for the suggestion container */
-#suggestionsContainer {
-    width: 315px;
-    position: absolute;
-    background-color: rgb(255, 255, 255); /* Semi-transparent white background */
-    /* border: px solid #ccc; */
-    border-radius: 6px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for the container */
-    max-height: 400px; /* Set a maximum height for the container */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    z-index: 1; /* Ensure it appears above other elements */
-  }
-  
-  /* Styles for individual suggestions */
-  .suggestion {
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  .suggestion:hover {
-    background-color: #f0f0f0; /* Background color on hover */
-  }
-  
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    form {
+        max-width: 100%; /* Take full width on smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    input[type="text"] {
+        width: 100%; /* Take full width for text inputs */
+    }
+}
