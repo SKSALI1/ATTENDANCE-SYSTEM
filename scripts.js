@@ -138,6 +138,23 @@ getLocationButton.addEventListener('click', function (e) {
 
 
 
+const radioButtons = document.querySelectorAll('input[type="radio"]');
+    
+    radioButtons.forEach(radioButton => {
+        radioButton.addEventListener('click', () => {
+            // Uncheck other radio buttons in the same group
+            radioButtons.forEach(rb => {
+                if (rb !== radioButton) {
+                    rb.checked = false;
+                }
+            });
+        });
+    });
+
+
+
+
+
 
 
 
@@ -199,7 +216,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwdNJaDuMrOXqui0YpTgq
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => alert("Thank you! Your attendance has been marked, Have a great day" ))
+            .then(response => alert("Thank you! your form is submitted successfully." ))
             .then(() => {  window.location.reload(); })
             .catch(error => console.error('Error!', error.message))
         })
