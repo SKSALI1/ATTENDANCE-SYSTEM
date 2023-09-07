@@ -199,7 +199,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwdNJaDuMrOXqui0YpTgq
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => alert("Thank you! your form is submitted successfully." ))
+            .then(response => alert("Thank you! Your attendance has been marked, Have a great day" ))
             .then(() => {  window.location.reload(); })
             .catch(error => console.error('Error!', error.message))
         })
